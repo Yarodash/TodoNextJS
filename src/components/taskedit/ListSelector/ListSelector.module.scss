@@ -1,0 +1,16 @@
+.list_selector {
+  width: max-content;
+  padding: var(--space-tiny) var(--space-small);
+
+  border-radius: var(--space-small);
+  outline: 1px solid var(--color-darken);
+
+  cursor: pointer;
+
+  font-family: var(--default-font);
+  font-size: var(--small-scale);
+
+  &:hover, &:focus {
+    outline: 2px solid var(--color-focus);
+  }
+}

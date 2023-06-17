@@ -1,0 +1,31 @@
+.add_tag {
+  padding: var(--space-small) var(--space-big);
+  border-radius: var(--space-small);
+
+  background-color: var(--color-active);
+
+  &:hover, &:focus, &:focus-within {
+    cursor: pointer;
+    outline: 2px solid var(--color-focus);
+  }
+}
+
+.checkmark {
+  &:hover {
+    background-color: #00000010;
+    border-radius: 25%;
+  }
+}
+
+.content {
+  display: none;
+}
+
+.visible {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: max-content;
+
+  gap: var(--space-tiny);
+}

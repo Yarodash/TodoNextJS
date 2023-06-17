@@ -1,0 +1,23 @@
+.task_add {
+  width: 100%;
+
+  display: grid;
+  grid-template-columns: min-content 1fr;
+  align-items: center;
+
+  gap: var(--space-normal);
+
+  padding: var(--space-large) var(--space-big);
+
+  border-radius: var(--space-normal);
+  outline: 1px solid var(--color-darken);
+}
+
+.plus {
+  transition: transform 200ms ease;
+
+  &:hover {
+    cursor: pointer;
+    transform: scale(1.3);
+  }
+}

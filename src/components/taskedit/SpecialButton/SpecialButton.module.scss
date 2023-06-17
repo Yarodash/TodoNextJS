@@ -1,0 +1,27 @@
+.special_button {
+  display: grid;
+  place-items: center;
+
+  padding: var(--space-big) 0;
+  border-radius: var(--space-normal);
+
+  &:hover {
+    cursor: pointer;
+  }
+
+  &:not(.accent) {
+    outline: 1px solid var(--color-darken);
+
+    &:hover {
+      background-color: var(--color-darken);
+    }
+  }
+
+  &.accent {
+    background-color: var(--color-accent);
+
+    &:hover {
+      background-color: var(--color-accent-darken);
+    }
+  }
+}

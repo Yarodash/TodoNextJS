@@ -1,0 +1,11 @@
+.icon {
+  min-width: var(--size);
+  min-height: var(--size);
+  width: var(--size);
+  height: var(--size);
+
+  & > .img {
+    width: 100%;
+    height: 100%;
+  }
+}

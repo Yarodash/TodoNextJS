@@ -1,0 +1,14 @@
+.search_bar {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: var(--space-small) var(--space-normal);
+  gap: var(--space-normal);
+
+  border-radius: var(--space-normal);
+  outline: 1px solid var(--color-darken);
+}
+
+.input {
+  width: 100%;
+}

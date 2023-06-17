@@ -1,0 +1,44 @@
+.task_edit {
+  width: 550px;
+
+  padding: var(--space-big) var(--space-large);
+  background-color: var(--color-side);
+
+  display: flex;
+  flex-direction: column;
+
+  overflow-y: auto;
+  gap: var(--space-big);
+
+  border-radius: var(--space-big);
+
+  & > *:last-child {
+    margin-bottom: var(--space-big);
+  }
+}
+
+.input {
+  padding: var(--space-normal) var(--space-normal);
+
+  border-radius: var(--space-normal);
+  outline: 1px solid var(--color-darken);
+}
+
+.more_data {
+  display: grid;
+  grid-template-columns: max-content 1fr;
+  grid-template-rows: 1fr 1fr max-content;
+
+  align-items: center;
+
+  row-gap: var(--space-normal);
+  column-gap: var(--space-large);
+}
+
+.controls {
+  margin-top: auto;
+
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-large);
+}

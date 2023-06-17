@@ -1,0 +1,36 @@
+.tag_item {
+  position: relative;
+  max-width: 180px;
+
+  display: grid;
+  place-items: center;
+
+  padding: var(--space-small) var(--space-big);
+  border-radius: var(--space-small);
+
+  & > .text {
+    transition: opacity 200ms ease;
+    width: 100%;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
+
+  & > .delete {
+    transition: opacity 200ms ease;
+    opacity: 0;
+    position: absolute;
+  }
+
+  &:hover {
+    cursor: pointer;
+
+    & > .text {
+      opacity: 0;
+    }
+
+    & > .delete {
+      opacity: 1;
+    }
+  }
+}

@@ -1,0 +1,17 @@
+.content {
+  width: var(--size);
+  height: var(--size);
+
+  display: grid;
+  justify-items: center;
+  align-items: center;
+}
+
+.checkbox {
+  width: calc(0.7 * var(--size));
+  height: calc(0.7 * var(--size));
+
+  &:hover {
+    cursor: pointer;
+  }
+}

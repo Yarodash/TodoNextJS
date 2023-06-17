@@ -1,0 +1,18 @@
+.tag_selector {
+  width: max-content;
+
+  border-radius: var(--space-small);
+
+  outline: none;
+  cursor: pointer;
+
+  font-family: var(--default-font);
+  font-size: var(--small-scale);
+
+  margin-top: -1px;
+  margin-bottom: -1px;
+
+  &:hover {
+    background-color: #00000010;
+  }
+}

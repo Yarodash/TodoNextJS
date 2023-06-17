@@ -1,0 +1,15 @@
+.input {
+  font-size: var(--size);
+}
+
+.input::placeholder {
+  color: var(--text-color-side);
+}
+
+.gray {
+  color: var(--text-color-side);
+}
+
+.bold {
+  font-weight: var(--text-bold);
+}

@@ -1,0 +1,25 @@
+.subtask_item {
+  display: grid;
+  grid-template-columns: min-content 1fr min-content;
+  padding: var(--space-small) var(--space-large);
+
+  align-items: center;
+
+  gap: var(--space-big);
+}
+
+.input {
+  &:hover {
+    border-radius: var(--space-small);
+    background-color: var(--color-darken);
+  }
+}
+
+.remove {
+  transition: transform 200ms ease;
+
+  &:hover {
+    cursor: pointer;
+    transform: scale(1.3);
+  }
+}

@@ -1,0 +1,14 @@
+.number_chip {
+  width: max-content;
+  height: var(--size);
+  font-size: calc(0.7 * var(--size));
+
+  display: grid;
+  place-items: center;
+
+  min-width: calc(1.7 * var(--size));
+  border-radius: calc(0.3 * var(--size));
+  padding: 0 calc(0.3 * var(--size));
+
+  background-color: var(--color-active);
+}

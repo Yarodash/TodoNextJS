@@ -1,0 +1,26 @@
+.menu {
+  position: relative;
+
+  min-width: 400px;
+  width: 400px;
+  max-width: 400px;
+
+  overflow-y: hidden;
+
+  background-color: var(--color-side);
+  border-radius: var(--space-big);
+  padding: var(--space-big);
+}
+
+.open {
+  position: absolute;
+  top: var(--space-big);
+  right: var(--space-big);
+
+  transition: transform 150ms ease-out;
+
+  &:hover {
+    cursor: pointer;
+    transform: scale(1.1);
+  }
+}
