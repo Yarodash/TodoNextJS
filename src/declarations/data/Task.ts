@@ -11,6 +11,7 @@ export interface Task {
 }
 
 export interface TaskPut {
+  id: string,
   title?: string,
   description?: string,
   done?: boolean,

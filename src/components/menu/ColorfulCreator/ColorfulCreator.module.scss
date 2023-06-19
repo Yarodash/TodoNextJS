@@ -1,0 +1,37 @@
+.colorful_creator {
+  display: flex;
+  flex-direction: column;
+  padding: var(--space-normal);
+
+  outline: 1px solid var(--color-darken);
+  border-radius: var(--space-small);
+
+  gap: var(--space-normal);
+  margin-top: var(--space-normal);
+}
+
+.top {
+  padding: var(--space-normal) var(--space-big);
+
+  outline: 1px solid var(--color-darken);
+  border-radius: var(--space-small);
+
+  display: grid;
+  grid-template-columns: min-content 1fr min-content;
+  justify-content: center;
+  align-items: center;
+  gap: var(--space-big);
+}
+
+.input {
+  width: 100%;
+}
+
+.checkmark {
+  transition: transform 200ms ease;
+
+  &:hover {
+    cursor: pointer;
+    transform: scale(1.15);
+  }
+}

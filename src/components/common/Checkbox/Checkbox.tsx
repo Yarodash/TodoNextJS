@@ -16,7 +16,7 @@ function Checkbox({ value, setValue, scale="normal", className = "" }: CheckboxP
         className={styles.checkbox}
         type="checkbox"
         checked={value}
-        onChange={e => setValue(e.target.checked)}
+        onChange={e => { e.stopPropagation(); setValue(e.target.checked); }}
       />
     </div>
   );

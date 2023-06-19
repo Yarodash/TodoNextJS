@@ -1,3 +1,25 @@
 .main {
-  background-color: #6060f030;
+  display: grid;
+  justify-items: center;
+  align-items: center;
+  font-size: 64px;
+  font-weight: 400;
+}
+
+.content {
+  display: flex;
+  gap: 24px;
+}
+
+.letter {
+  animation: letterAnimation 2500ms ease-in-out infinite calc(50ms * var(--index));
+}
+
+@keyframes letterAnimation {
+  from, 40%, to {
+    transform: scale(1.0);
+  }
+  20% {
+    transform: scale(1.5);
+  }
 }

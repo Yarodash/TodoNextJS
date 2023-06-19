@@ -7,16 +7,19 @@ import Icon from "@/ui/common/Icon/Icon";
 import {createEmptyTask} from "@/declarations/data/Task";
 import Input from "@/ui/common/Input/Input";
 import {CurrentListContext} from "@/store/CurrentListContext";
+import {CurrentTagContext} from "@/store/CurrentTagContext";
 
 function TaskAdd() {
   const { addNew } = useContext(TasksContext);
   const { list_id } = useContext(CurrentListContext);
+  const { tag_id } = useContext(CurrentTagContext);
 
   const [title, setTitle] = useState("");
 
   function addHandler() {
     if (title.trim().length > 0) {
-      addNew({...createEmptyTask(), title, list_id});
+      const tag_ids = tag_id !== "" ? [tag_id] : [];
+      addNew({...createEmptyTask(), title, list_id, tag_ids});
       setTitle("");
     }
   }

@@ -4,6 +4,7 @@ import styles from "./TagItemLink.module.scss"
 import {Tag} from "@/declarations/data/Tag";
 import clsx from "clsx";
 import CustomText from "@/ui/common/Text/CustomText";
+import Link from "next/link";
 
 export interface TagItemLinkProps {
   tag: Tag,
@@ -11,11 +12,11 @@ export interface TagItemLinkProps {
 
 function TagItemLink({ tag }: TagItemLinkProps) {
   return (
-    <div
+    <Link href={`/tags/${tag.id}`}
       className={clsx(styles.tag_item)}
-      style={{backgroundColor: tag.color}}>
+      style={{"--color": tag.color} as any}>
       <CustomText className={styles.text} scale="small">{tag.title}</CustomText>
-    </div>
+    </Link>
   );
 }
 

@@ -7,7 +7,7 @@ interface CurrentListContextType {
 }
 
 export const CurrentListContext = createContext<CurrentListContextType>({
-  list_id: "",
+  list_id: "all",
 });
 
 interface ProviderProps {

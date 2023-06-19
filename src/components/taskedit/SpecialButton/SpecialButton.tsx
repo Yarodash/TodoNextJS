@@ -1,3 +1,5 @@
+"use client"
+
 import styles from "./SpecialButton.module.scss"
 import clsx from "clsx";
 import CustomText from "@/ui/common/Text/CustomText";

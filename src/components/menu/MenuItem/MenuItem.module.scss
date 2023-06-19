@@ -1,6 +1,6 @@
 .menu_item {
-  display: flex;
-  flex-direction: row;
+  display: grid;
+  grid-template-columns: min-content 1fr min-content;
   align-items: center;
   gap: var(--space-normal);
   padding: var(--space-small) var(--space-normal);

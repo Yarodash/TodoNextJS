@@ -11,7 +11,7 @@ export interface SubtasksListProps {
 function SubtasksList({ subtasks, setSubtasks }: SubtasksListProps) {
   return (
     <div className={styles.subtasks_list}>
-      <SubtaskAdd onAdd={subtask => setSubtasks([subtask, ...subtasks])}/>
+      <SubtaskAdd onAdd={subtask => setSubtasks([...subtasks, subtask])}/>
       {subtasks.map((subtask, index) =>
         <SubtaskItem
           key={index}

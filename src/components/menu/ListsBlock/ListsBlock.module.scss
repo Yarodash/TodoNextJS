@@ -1,0 +1,20 @@
+.lists_block {
+  display: flex;
+  flex-direction: column;
+}
+
+.new_list {
+  display: grid;
+  grid-template-columns: min-content 1fr;
+  align-items: center;
+
+  gap: var(--space-normal);
+  padding: var(--space-small) var(--space-normal);
+
+  border-radius: var(--space-normal);
+
+  &:hover {
+    cursor: pointer;
+    background-color: var(--color-active);
+  }
+}

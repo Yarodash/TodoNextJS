@@ -1,20 +1,18 @@
 "use client"
 
-import {createContext, ReactNode, useCallback, useEffect, useMemo, useState} from "react";
+import {createContext, ReactNode, useCallback, useMemo, useState} from "react";
 import {List} from "@/declarations/data/List";
-import {requestGetLists} from "@/requests/ListRequests";
+import {requestGetLists, requestPostList, requestPutList} from "@/requests/ListRequests";
 
 interface ListsContextType {
   lists: List[],
   find: (id: string) => List | undefined,
+  addNew: (list: List) => Promise<void>,
   refresh: () => void,
+  update: (list: List) => Promise<void>,
 }
 
-export const ListsContext = createContext<ListsContextType>({
-  lists: [],
-  find: () => undefined,
-  refresh: () => {},
-});
+export const ListsContext = createContext({} as ListsContextType);
 
 interface ProviderProps {
   initial: List[],
@@ -24,8 +22,6 @@ interface ProviderProps {
 export default function ListsContextProvider({ initial, children }: ProviderProps) {
   const [lists, setLists] = useState(initial);
 
-  console.log("LIST UPDATE", lists);
-
   const find = useCallback((id: string) => {
     return lists.find(list => list.id === id);
   }, [lists]);
@@ -34,11 +30,29 @@ export default function ListsContextProvider({ initial, children }: ProviderProp
     requestGetLists().then(setLists);
   }, []);
 
+  const addNew = useCallback(async (list: List) => {
+    const listCreated = await requestPostList(list);
+
+    if (listCreated !== null) {
+      setLists(lists => [...lists, listCreated]);
+    }
+  }, []);
+
+  const update = useCallback(async (list: List) => {
+    const listUpdated = await requestPutList(list);
+
+    if (listUpdated !== null) {
+      setLists(lists => lists.map(l => l.id === listUpdated.id ? listUpdated : l));
+    }
+  }, []);
+
   const value: ListsContextType = useMemo(() => ({
     lists,
     find,
+    addNew,
     refresh,
-  }), [lists, find, refresh]);
+    update,
+  }), [lists, find, addNew, refresh, update]);
 
   return (
     <ListsContext.Provider value={value}>

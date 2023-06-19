@@ -1,0 +1,19 @@
+.color_selector {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.box {
+  padding: var(--space-small);
+  border-radius: var(--space-small);
+
+  &:hover {
+    cursor: pointer;
+    outline: 1px solid var(--color-darken);
+  }
+
+  &.active {
+    outline: 2px solid var(--color-focus);
+  }
+}

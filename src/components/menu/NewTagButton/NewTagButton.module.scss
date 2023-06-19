@@ -1,0 +1,17 @@
+.new_tag_button {
+  display: flex;
+  flex-direction: row;
+
+  padding: var(--space-small) var(--space-big) var(--space-small) var(--space-normal);
+  border-radius: var(--space-small);
+
+  gap: var(--space-tiny);
+  align-items: center;
+
+  background-color: var(--color-active);
+
+  &:hover {
+    cursor: pointer;
+    outline: 2px solid var(--color-focus);
+  }
+}

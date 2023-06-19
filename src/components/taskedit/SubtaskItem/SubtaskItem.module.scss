@@ -5,13 +5,15 @@
 
   align-items: center;
 
-  gap: var(--space-big);
+  gap: var(--space-normal);
 }
 
 .input {
-  &:hover {
-    border-radius: var(--space-small);
-    background-color: var(--color-darken);
+  border-radius: var(--space-small);
+  padding: 0 var(--space-tiny);
+
+  &:hover, &:focus {
+    outline: 2px solid var(--color-focus);
   }
 }
 

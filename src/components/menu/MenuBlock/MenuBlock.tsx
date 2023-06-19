@@ -1,7 +1,6 @@
 import styles from "./MenuBlock.module.scss"
 import {ReactNode} from "react";
 import CustomText from "@/components/common/Text/CustomText";
-import clsx from "clsx";
 
 export interface MenuBlockProps {
   title: string,
@@ -11,7 +10,9 @@ export interface MenuBlockProps {
 function MenuBlock({ title, children }: MenuBlockProps) {
   return (
     <section className={styles.menu_block}>
-      <CustomText className={clsx("margin-bottom-small", styles.title)} scale="small" bold>{title}</CustomText>
+      <CustomText
+        className={styles.title}
+        scale="small" bold>{title}</CustomText>
       {children}
     </section>
   );

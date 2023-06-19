@@ -1,6 +1,6 @@
 import {useContext} from "react";
 import {TagsContext} from "@/store/TagsContext";
-import TagItemDelete from "@/ui/common/TagItemDelete/TagItemDelete";
+import TagItemDelete from "@/ui/taskedit/TagItemDelete/TagItemDelete";
 import {Tag} from "@/declarations/data/Tag";
 import TagsContainer from "@/ui/common/TagsContainer/TagsContainer";
 import AddTag from "@/ui/taskedit/AddTag/AddTag";

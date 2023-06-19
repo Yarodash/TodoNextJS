@@ -1,17 +1,15 @@
 "use client"
 
 import styles from "./TaskList.module.scss"
-import {Task} from "@/declarations/data/Task";
 import TaskItem from "@/ui/tasklist/TaskItem/TaskItem";
-import {useContext} from "react";
-import {TasksContext} from "@/store/TasksContext";
 import TaskAdd from "@/ui/tasklist/TaskAdd/TaskAdd";
+import {Task} from "@/declarations/data/Task";
 
-function TaskList() {
-  const { tasks } = useContext(TasksContext);
+export interface TaskListProps {
+  tasks: Task[],
+}
 
-  console.log(tasks);
-
+function TaskList({ tasks }: TaskListProps) {
   return (
     <div className={styles.tasklist}>
       <TaskAdd/>

@@ -1,27 +1,45 @@
-import styles from "./layout.module.scss"
-import {requestGetTasksByList} from "@/requests/TaskRequests";
-import TaskList from "@/ui/tasklist/TaskList/TaskList";
-import AddPath from "@/store/PathContext";
-import ListsTagsContextLoad from "@/store/ListsTagsContextLoad";
-import TasksContextProvider from "@/store/TasksContext";
-import {Task} from "@/declarations/data/Task";
-import CurrentListContextProvider from "@/store/CurrentListContext";
+"use client"
 
-export default async function Layout(
+import AddPath from "@/store/PathContext";
+import {TasksContext} from "@/store/TasksContext";
+import CurrentListContextProvider from "@/store/CurrentListContext";
+import {useContext, useEffect, useMemo, useState} from "react";
+import {Task} from "@/declarations/data/Task";
+import TasksLayout from "@/ui/tasklist/TasksLayout/TasksLayout";
+import {ListsContext} from "@/store/ListsContext";
+import ListHeader from "@/ui/tasklist/ListHeader/ListHeader";
+
+export default function Layout(
   {children, params}: { children: React.ReactNode, params: any }
 ) {
-  const tasks = await requestGetTasksByList(params.list_id);
+  const { find } = useContext(ListsContext);
+  const { load } = useContext(TasksContext);
+  const [tasks, setTasks] = useState([] as Task[]);
+
+  useEffect(() => {
+    load(params.list_id).then(setTasks);
+  }, [load, params.list_id]);
+
+  const list = useMemo(() => {
+    return find(params.list_id);
+  }, [find, params.list_id]);
+
+  if (list === undefined) {
+    return (
+      <div>Not found</div>
+    );
+  }
 
   return (
     <AddPath append={`lists/${params.list_id}`}>
-      <main className={styles.main}>
-        <TasksContextProvider initial={tasks}>
-          <CurrentListContextProvider initial={params.list_id}>
-            <TaskList/>
-            {children}
-          </CurrentListContextProvider>
-        </TasksContextProvider>
-      </main>
+      <CurrentListContextProvider initial={list?.id || "all"}>
+        <TasksLayout
+          header={<ListHeader list={list}/>}
+          tasks={tasks}
+        >
+          {children}
+        </TasksLayout>
+      </CurrentListContextProvider>
     </AddPath>
   )
 }
